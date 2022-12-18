@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>kmeans</title>
+    <link rel="stylesheet" href="/static/page1.css">
+</head>
+<body>
+
+    <h1 class="test">User based Recommendation System</h1>
+     <img src="/static/film.jpg">
+    <br>
+    <label for="select">Enter your favorite film :</label>
+
+
+    <form action="result1" method="post">
+
+        <br>
+        <input type="text" name="name_input" id = 'movie'>
+        <br>
+        <input type="submit" class="submit" value="Recommend" id="submit">
+        {% for message in get_flashed_messages() %}
+             <p id="new">{{ message  }}</p>
+         {% endfor %}
+    </form>
+</body>
+</html>

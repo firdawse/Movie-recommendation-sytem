@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, flash
 import model as m
+from mlp import predict
 
 app = Flask(__name__)
 
@@ -42,10 +43,11 @@ def mlp():
 
 @app.route("/result4", methods=['POST', 'GET'])
 def result4():
-	flash(m.movie(request.form['name_input']))
-	return render_template("mlp.html")
+	movies = predict(request.form['name_input'])
+	return render_template("mlp.html",movies = movies)
 
 
 if __name__ == '__main__':
-    app.run(port=4000)
+    app.run(port=4000,debug=True)
+
 

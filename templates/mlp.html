@@ -53,10 +53,12 @@
         <h5 style="font-family: 'Poppins';font-weight: 600; font-size: large;">👍🏻 Top 5 Movies to watch</h5>
         <div style="display: flex;flex-direction: row;justify-content: space-evenly;">
             {% for i in range(5) %}
+            <div style="display: flex;flex-direction: column;">
             <div id="poster">
                 <img src={{poster_urls[i]}} alt="">
             </div>
             <p id="new">{{ movies[i] }}</p>
+        </div>
             {% endfor %}
         </div>
         

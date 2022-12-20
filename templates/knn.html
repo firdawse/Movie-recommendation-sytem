@@ -5,23 +5,50 @@
     <title>kmeans</title>
     <link rel="stylesheet" href="/static/page1.css">
 </head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        background-color: #fbf3e4;
+    }
+</style>
 <body>
 
     <h1 class="test">Knn movie Recommendation System</h1>
-     <img src="/static/film.jpg">
+     <!-- <img src="/static/film.jpg"> -->
     <br>
     <label for="select">Enter your favorite film :</label>
 
 
-    <form action="result3" method="post">
-
-        <br>
-        <input type="text" name="name_input" id = 'movie'>
-        <br>
-        <input type="submit" class="submit" value="Recommend" id="submit">
-        {% for message in get_flashed_messages() %}
-             <p id="new">{{ message  }}</p>
-         {% endfor %}
-    </form>
+    <div style="display: flex;flex-direction: column;justify-content: space-evenly;">
+        <form action="result3" method="post">
+            <label for="select">Enter the id of the user:</label>
+            <br>
+            <input type="text" name="user_id" id = 'movie'>
+            <br>
+            <input type="submit" style="font-family: 'Poppins';font-weight: 600;" class="submit" id="search" value="Recommend!" id="submit">
+            
+            {% for message in get_flashed_messages() %}
+                 <p id="new">{{ message }}</p>
+             {% endfor %}
+        </form>
+    
+        <div style="display: flow-root;">
+            <h5 style="font-family: 'Poppins';font-weight: 600; font-size: large;">👍🏻 Top 5 Movies to watch</h5>
+            <div style="display: flex;flex-direction: row;justify-content: space-evenly;">
+                
+                {% for i in range(5) %}
+                <div style="display: flex;flex-direction: column;">
+                <div id="poster">
+                    <img src={{poster_urls[i]}} alt="">
+                </div>
+                <p id="new">{{ movies[i] }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+        
+    </div>
 </body>
 </html>

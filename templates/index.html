@@ -21,15 +21,55 @@
     <label for="select">Enter your favorite film :</label>
 
 
-    <form action="result1" method="post">
+    <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>kmeans</title>
+    <link rel="stylesheet" href="/static/page1.css">
+</head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        background-color: #fbf3e4;
+    }
+</style>
+<body>
 
-        <br>
-        <input type="text" name="name_input" id = 'movie'>
-        <br>
-        <input type="submit" class="submit" value="Recommend!" style="font-family: Poppins;font-weight: 700;" id="submit">
-        {% for message in get_flashed_messages() %}
-             <p id="new">{{ message  }}</p>
-         {% endfor %}
-    </form>
+     <!-- <img src="/static/film.jpg"> -->
+    <br>
+
+    <div style="display: flex;flex-direction: column;justify-content: space-evenly;">
+        <form action="result1" method="post">
+            <br>
+            <input type="text" name="user_id" id = 'movie'>
+            <br>
+            <input type="submit" style="font-family: 'Poppins';font-weight: 600;" class="submit" id="search" value="Recommend!" id="submit">
+            
+            {% for message in get_flashed_messages() %}
+                 <p id="new">{{ message }}</p>
+             {% endfor %}
+        </form>
+    
+        <div style="display: flow-root;">
+            <h5 style="font-family: 'Poppins';font-weight: 600; font-size: large;">👍🏻 Top 5 Movies to watch</h5>
+            <div style="display: flex;flex-direction: row;justify-content: space-evenly;">
+                
+                {% for i in range(5) %}
+                <div style="display: flex;flex-direction: column;">
+                <div id="poster">
+                    <img src={{poster_urls[i]}} alt="">
+                </div>
+                <p id="new">{{ movies[i] }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+        
+    </div>
+</body>
+</html>
 </body>
 </html>

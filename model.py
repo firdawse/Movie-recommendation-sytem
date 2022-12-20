@@ -14,4 +14,4 @@ def movie(input):
     movie_watched = pivot_table[input]
     similarity_with_other_movies = pivot_table.corrwith(movie_watched)# find correlation between "Bad Boys (1995)" and other movies
     # find correlation between "Bad Boys (1995)" and other movies
-    return similarity_with_other_movies.head().index.tolist()[0]+ '\n'+ similarity_with_other_movies.head().index.tolist()[1] +'\n'+ similarity_with_other_movies.head().index.tolist()[2]+'\n'+ similarity_with_other_movies.head().index.tolist()[3]+'\n'+ similarity_with_other_movies.head().index.tolist()[4]
+    return similarity_with_other_movies.head().index.tolist()

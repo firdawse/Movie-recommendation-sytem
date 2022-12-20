@@ -14,7 +14,6 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  font-family:Arial, Helvetica, sans-serif;
 }
 
 .but:hover {
@@ -26,15 +25,15 @@ h1{
     color:rgb(230, 5, 5);
     text-align: center;
     text-shadow: rgb(252, 248, 248);
-    font-family:gabriola;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     font-size: 80px;
 }
 body {
     text-align: center;
-    /* background-color: rgb(255, 255, 255); */
-    background: url("background.jpg");
-    background-repeat : no-repeat;
-    background-size : 1400px 700px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    /* background: url("background.jpg"); */
 
 }
 img {

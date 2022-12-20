@@ -4,12 +4,31 @@
     <meta charset="UTF-8">
     <title>Recommendation system</title>
     <link rel="stylesheet" href="/static/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
+<style>
+    .but {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        background: url_for('static',"background.jpg");
+        background-size: cover;
+    }
+
+    h1 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+    }
+</style>
 <body>
-<h1>Mobies Recommendation System </h1>
+<h1>Movies Recommendation System </h1>
 <a href=UserBased ><button class=but style="margin-left: 50px;" >User Based algorithm</button></a>
-<a href=kmeans ><button class=but style="margin-left: 100px; "> Kmeans</button></a>
-<a href=knn ><button class=but style="margin-left: 150px;"> Knn</button></a>
+<a href=kmeans ><button class=but style="margin-left: 100px; "> K-means</button></a>
+<a href=knn ><button class=but style="margin-left: 150px;"> KNN</button></a>
 <a href=mlp ><button class=but style="margin-left: 200px;"> MLP</button></a>
 
 </body>

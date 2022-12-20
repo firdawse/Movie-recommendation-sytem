@@ -2,11 +2,14 @@ h1{
     color:rgb(122, 11, 11);
     text-align: center;
     text-shadow: rgb(252, 248, 248);
-    font-family:gabriola;
-    font-size: 80px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+
 }
 body {
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     /* background-color: rgb(255, 255, 255); */
 
 }
@@ -16,7 +19,8 @@ img {
 }
 
 .test {
-    font-style:italic;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     font-size: 50px;
     color:rgb(151, 29, 29);
     text-align: center;
@@ -40,7 +44,6 @@ input {
     height: 50px;
     border: none;
     border-radius: 10px;
-    font-family: Shanti;
     font-size: 1.3em;
     background-color : rgb(122, 11, 11);
     color: rgb(252, 248, 248);

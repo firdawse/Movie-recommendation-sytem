@@ -3,6 +3,7 @@ import model as m
 import json, requests
 from mlp import predict,get_top_watched_movies
 from knn import knn_predict
+from kmeans import kmeans_predict
 
 app = Flask(__name__)
 
@@ -39,12 +40,28 @@ def UserBased():
 
 @app.route('/kmeans')
 def kmeans():
-	return render_template('kmeans.html')
+	return render_template('kmeans.html', movies = [], poster_urls = [])
 
 @app.route("/result2", methods=['POST', 'GET'])
 def result2():
-	flash(m.movie(request.form['name_input']))
-	return render_template("kmeans.html")
+	predicted_movies = kmeans_predict(request.form['user_id'])
+
+	if predicted_movies == 1:
+		flash("User not found", "error")
+		return render_template("kmeans.html", movies = [])
+
+	poster_urls = []
+	for movie in predicted_movies:
+		response = requests.get(f"https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query='{movie[:-6]}'")
+		if response.json()['total_results'] == 0:
+			poster_urls.append('')
+		else:
+			response = response.json()["results"][0]['poster_path']
+			print(response)
+			poster_urls.append(f"http://image.tmdb.org/t/p/w500/{response}")
+	
+	return render_template("kmeans.html", movies = predicted_movies, poster_urls = poster_urls)
+
 
 @app.route('/knn')
 def knn():

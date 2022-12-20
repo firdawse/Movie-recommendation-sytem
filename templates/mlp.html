@@ -2,29 +2,60 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>kmeans</title>
+    <title>MLP Prediction</title>
+    <script> src='/static/script.js'</script>
     <link rel="stylesheet" href="/static/page1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+    }
+</style>
 <body>
 
-    <h1 class="test">MLP movie Recommendation System</h1>
-     <img src="/static/film.jpg">
+    <h1 style="font-family: 'Poppins';font-weight: 600;">MLP Movie Recommendation System</h1>
+     <img src="/static/film.jpg" style="margin: 0px 0px 0px 0px;">
     <br>
-    <label for="select">Enter the id of the user:</label>
+    
 
-
+<div style="display: flex;flex-direction: row;justify-content: space-evenly;">
     <form action="result4" method="post">
-
+        <label for="select">Enter the id of the user:</label>
         <br>
-        <input type="text" name="name_input" id = 'movie'>
+        <input type="text" name="user_id" id = 'movie'>
         <br>
-        <input type="submit" class="submit" value="Recommend" id="submit">
-        {% for element in movies %}
-            <p id="new">{{ element }}</p>
-        {% endfor %}
+        <input type="submit" style="font-family: 'Poppins';font-weight: 600;" class="submit" id="search" value="Recommend!" id="submit">
+        
         {% for message in get_flashed_messages() %}
              <p id="new">{{ message  }}</p>
          {% endfor %}
     </form>
+    <div style="display: flow-root;">
+        <h5 style="font-family: 'Poppins';font-weight: 600; font-size: large;">⭐️ Top Watched movies</h5>
+        {% for i in range(5) %}
+            <div id="poster">
+                <img src={{watched_poster_urls[i]}} alt="">
+            </div>
+            <p id="term">{{ watched_movies[i] }}</p>
+            
+            
+        {% endfor %}
+    </div>
+
+    <div style="display: flow-root;">
+        <h5 style="font-family: 'Poppins';font-weight: 600; font-size: large;">👍🏻 Top 5 Movies to watch</h5>
+        {% for i in range(5) %}
+            <div id="poster">
+                <img src={{poster_urls[i]}} alt="">
+            </div>
+            <p id="new">{{ movies[i] }}</p>
+        
+        {% endfor %}
+    </div>
+    
+</div>
 </body>
 </html>
